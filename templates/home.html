@@ -1,0 +1,46 @@
+{% load static %}<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Boards</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      
+      <!-- Modernized Breadcrumb wrapper to match the visual card styling -->
+      <nav aria-label="breadcrumb" class="p-3 my-4 bg-body-secondary rounded">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item active fw-semibold text-secondary" aria-current="page">Boards</li>
+        </ol>
+      </nav>
+
+      <!-- Clean align-middle table -->
+      <table class="table align-middle">
+        <!-- Replaced the old .thead-inverse with modern .table-dark -->
+        <thead class="table-dark">
+          <tr>
+            <th class="py-3 ps-3">Board</th>
+            <th class="py-3">Posts</th>
+            <th class="py-3">Topics</th>
+            <th class="py-3">Last Post</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for board in boards %}
+            <tr>
+              <td class="ps-3 py-3">
+                <!-- Added link styles and d-block spacing to look identical to the screenshot -->
+                <a href="#" class="text-decoration-none fw-bold text-dark fs-5 d-block mb-1">{{ board.name }}</a>
+                <small class="text-muted d-block">{{ board.description }}</small>
+              </td>
+              <td class="text-secondary fw-semibold">0</td>
+              <td class="text-secondary fw-semibold">0</td>
+              <td></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
