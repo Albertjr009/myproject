@@ -2,12 +2,12 @@ from django.urls import resolve, reverse
 from django.test import TestCase
 
 from boards.views import board_topics, home
-from .models import Board
+from ..models import Board
 
 from django.contrib.auth.models import User
-from .views import new_topic
-from .models import Board, Topic, Post
-from .forms import NewTopicForm
+from ..views import new_topic
+from ..models import Board, Topic, Post
+from ..forms import NewTopicForm
 
 class HomeTests(TestCase):
     def setUp(self):
