@@ -52,7 +52,9 @@ class BoardTopicsTests(TestCase):
 
 class NewTopicTests(TestCase):
     def setUp(self):
-        Board.objects.create(name='Django', description='Django board.')
+        self.board = Board.objects.create(name='Django', description='Django board.')
+        self.user = User.objects.create_user(username='testuser', email='test@user.com', password='password123')
+        self.client.login(username='testuser', password='password123')
 
     def test_csrf(self):
         url = reverse('new_topic', kwargs={'pk': 1})
